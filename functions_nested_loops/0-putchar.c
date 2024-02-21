@@ -6,7 +6,7 @@
  *@char: Holds a character
  *Return: 0 success
  */
-void _putchar(char)
+int _putchar(char)
 {
 	char str[7] = "_putchar";
 	int p;
@@ -15,4 +15,5 @@ void _putchar(char)
 	{
 		_putchar(stri[p]);
 	}
+	return (0);
 }
