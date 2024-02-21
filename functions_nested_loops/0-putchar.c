@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
- *main- Printing the word _putchar followed by a \n
+ *_putchar- Printing the word _putchar followed by a \n
+ *@char: Holds a character
  *Return: 0 success
  */
 void _putchar(char)
@@ -11,7 +13,6 @@ void _putchar(char)
 
 	for (p = 0; p <= 7; i++)
 	{
-		putchar(stri[p]);
+		_putchar(stri[p]);
 	}
-	return (0);
 }
