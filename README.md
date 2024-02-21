@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C -FUNCTIONS AND NESTED LOOPS, HOLBERTON CODING SCHOOL:
 
 1. What are nested loops and how to use them.
@@ -25,7 +24,7 @@ In the following examples, the main.c files are shown as examples. You can use t
 The prototypes of all your functions and the prototype of the function _putchar should be included in your header file called main.h
 Don’t forget to push your header file
 You do not have to understand the call by reference (address), stack, static variables, recursions or arrays, yet.
-=======
+
 C -HELLO, WORLD, HOLBERTON CODING SCHOOL:
 
 Why C programming is awesome
@@ -91,4 +90,3 @@ done
 Once saved, exit file and change permissions to apply to all users with chmod a+x betty
 Move the betty file into /bin/ directory or somewhere else in your $PATH with sudo mv betty /bin/
 You can now type betty <filename> to run the Betty linter!
->>>>>>> 68de2013098b7dc8bfd29897a6ad61279828106a
