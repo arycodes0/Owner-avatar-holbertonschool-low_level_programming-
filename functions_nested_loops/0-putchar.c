@@ -4,7 +4,7 @@
  *main- Printing the word _putchar followed by a \n
  *Return: 0 success
  */
-int main(void)
+void _putchar(char)
 {
 	char str[7] = "_putchar";
 	int p;
