@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -6,14 +5,19 @@
  *@char: Holds a character
  *Return: 0 success
  */
-int _putchar(char)
+int main(void)
 {
-	char str[7] = "_putchar";
-	int p;
 
-	for (p = 0; p <= 7; i++)
-	{
-		_putchar(stri[p]);
-	}
+	int i, lnt;
+	char string[] = "_putchar";
+
+	lnt = sizeof(string);
+
+	for (i = 0; i < lnt - 1 ; i++)
+		_putchar(string[i]);
+
+	_putchar('\n');
+
+
 	return (0);
 }
