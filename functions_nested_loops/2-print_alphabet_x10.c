@@ -2,6 +2,7 @@
 
 /**
  *print_alphabet_x10 - Prints the alphabet 10 times in lowercase
+ *@char: Holds a character
  *Return: 0 success
  */
 
