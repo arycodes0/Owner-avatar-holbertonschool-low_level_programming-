@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 int _putchar(char c);
 int main(void);
 void print_alphabet(void);
