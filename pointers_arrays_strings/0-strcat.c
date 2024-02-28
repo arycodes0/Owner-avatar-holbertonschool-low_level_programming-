@@ -4,13 +4,15 @@
  * *_strcat- Concatenates two strings
  * @dest: Destination str to append by source
  * @src: Source str to append to test
- * Return: & of dest
+ * Return: & of destination
  */
 
 char *_strcat(char *dest, char *src)
 {
 	int i, j;
+
 	i = j = 0;
+
 	while (dest[i] != '\0')
 	{
 		i++;
