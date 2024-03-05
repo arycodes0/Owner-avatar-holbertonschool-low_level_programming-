@@ -5,7 +5,6 @@
  * @n: Number to find the square root of
  * Return: The natural square root of n
  */
-
 int _sqrt_recursion(int n)
 {
 	if (n < 0)
