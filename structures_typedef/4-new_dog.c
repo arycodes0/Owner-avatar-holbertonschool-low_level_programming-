@@ -1,6 +1,5 @@
 #include "dog.h"
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 
 /**
@@ -12,35 +11,34 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *n_dog;
-	size_t name_len, owner_len;
+	dog_t *p_dog;
+	int i, lname, lowner;
 
-	if (name == NULL || owner == NULL)
-		return (NULL);
-
-	name_len = strlen(name) + 1;
-	owner_len = strlen(owner) + 1;
-
-	n_dog = malloc(sizeof(dog_t));
-	if (n_dog == NULL)
-		return (NULL);
-
-	n_dog->name = malloc(name_len);
-
-	if (n_dog->name == NULL)
+	p_dog = malloc(sizeof(*p_dog));
+	if (p_dog == NULL || !(name) || !(owner))
 	{
-		free(n_dog);
+		free(p_dog);
 		return (NULL);
 	}
-	n_dog->owner = malloc(owner_len);
-	if (n_dog->owner == NULL)
+	for (lname = 0; name[lname]; lname++)
+		;
+	for (lowner = 0; owner[lowner]; lowner++)
+		;
+	p_dog->name = malloc(lname + 1);
+	p_dog->owner = malloc(lowner + 1);
+	if (!(p_dog->name) || !(p_dog->owner))
 	{
-		free(n_dog->name);
-		free(n_dog);
+		free(p_dog->owner);
+		free(p_dog->name);
+		free(p_dog);
 		return (NULL);
 	}
-	memcpy(n_dog->name, name, name_len);
-	memcpy(n_dog->owner, owner, owner_len);
-	n_dog->age = age;
-	return (n_dog);
+	for (i = 0; i < lname; i++)
+		p_dog->name[i] = name[i];
+	p_dog->name[i] = '\0';
+	p_dog->age = age;
+	for (i = 0; i < lowner; i++)
+		p_dog->owner[i] = owner[i];
+	p_dog->owner[i] = '\0';
+	return (p_dog);
 }
