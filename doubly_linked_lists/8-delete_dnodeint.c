@@ -6,7 +6,8 @@
  * @index: location of node to delete
  * Return: -1 if fail 1 if succ
  */
-int delete_nodeint_at_index(dlistint_t **head, unsigned int index)
+
+int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *new_node, *temp;
 	unsigned int idx;
