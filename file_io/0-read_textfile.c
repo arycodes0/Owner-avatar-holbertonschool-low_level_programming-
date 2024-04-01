@@ -1,47 +1,47 @@
 #include "main.h"
-
 /**
  * read_textfile - Reads the txt file.
  * @filename: File to read
  * @letters: Bytes
  * Return: The bytes it could read and print.
  */
-
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fp;
+	int *fdescriptor; /*File descriptor*/
 	char *buffer;
-	ssize_t bytes_written;
+	ssize_t bytes_written, bytes_read;
 
-	fp = fopen(filename, "r");
-	if (filename == NULL || fp == NULL)
+	if (filename == NULL)
 	{
 		return (0);
 	}
-
+	fdescriptor = open(filename, O_RDONLY); /*Opens file using read only FLAG*/
+	if (fdescriptor == -1) /*Checking if file opening was unsuccessful*/
+	{
+		return (0);
+	}
 	buffer = malloc(letters + 1); /*Allocate space for NULL terminator*/
 	if (buffer == NULL)
 	{
-		fclose(fp);
+		close(fdescriptor); /*Close the fdescriptor before returning*/
 		return (0);
 	}
-	bytes_written = fread(buffer, 1, letters, fp);
-	if (bytes_written < 0)
+	bytes_read = read(fdescriptor, buffer, letters);
+	if (bytes_read < 0)
 	{
-		fclose(fp);
+		close(fdescriptor);
 		free(buffer);
 		return (0);
 	}
-
-	buffer[bytes_written] = '\0'; /*NULL terminate the buffer*/
-
-	if (write(STDOUT_FILENO, buffer, bytes_written) != bytes_written)
+	buffer[bytes_read] = '\0'; /*NULL terminate the buffer*/
+	bytes_written = write(STDOUT_FILENO, buffer, bytes_read); /*Write to stdout*/
+	if (bytes_written != bytes_read)
 	{
-		fclose(fp);
+		close(fdescriptor);
 		free(buffer);
 		return (0);
 	}
-	fclose(fp);
+	close(fdescriptor);
 	free(buffer);
-	return (bytes_written);
+	return (bytes_read);
 }
